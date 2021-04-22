@@ -1,7 +1,9 @@
 package movierental;
 
+//TODO: transformer Movie en interface et faire des classes pour chaque type de film
 public class Movie {
 
+    //TODO: smell c'est quoi ces constantes?
     public static final int CHILDRENS = 2;
     public static final int NEW_RELEASE = 1;
     public static final int REGULAR = 0;
