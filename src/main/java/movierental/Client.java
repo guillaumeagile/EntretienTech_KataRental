@@ -6,12 +6,22 @@ public class Client {
 
     private final ListeDesLocationsDeFilm locationDeFilms = new ListeDesLocationsDeFilm();
 
-    public Client(String nom) {
+    private final SystemeDeTarification systemeDeTarification;
+
+    private final SystemeDeFidelisation systemeDeFidelisation;
+
+    public Client(String nom, SystemeDeTarification systemeDeTarification, SystemeDeFidelisation systemeDeFidelisation) {
         this.nom = nom;
+        this.systemeDeTarification = systemeDeTarification;
+        this.systemeDeFidelisation = systemeDeFidelisation;
     }
 
-    public void ajouter(LocationDeFilm locationDeFilm) {
-        locationDeFilms.ajouter(locationDeFilm);
+    public void ajouterUneLocation(Film film, int duree) {
+        Tarification tarification = systemeDeTarification.calculerTarification(film);
+
+        Fidelisation fidelisation = systemeDeFidelisation.calculerFidelisation(film);
+
+        locationDeFilms.ajouter(new LocationDeFilm(film, tarification, fidelisation, duree));
     }
 
     public String getNom() {

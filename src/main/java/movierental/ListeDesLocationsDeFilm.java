@@ -11,9 +11,9 @@ public class ListeDesLocationsDeFilm extends ArrayList<LocationDeFilm> {
     public void ajouter(LocationDeFilm location) {
         this.add(location);
 
-        this.montantTotal += location.getMontant();
+        this.montantTotal += location.calculerMontant();
 
-        this.pointDeFidelite += location.getPointDeFidelite();
+        this.pointDeFidelite += location.calculerNombreDePointsDeFidelite();
     }
 
     public double getMontantTotal() {
